@@ -6,11 +6,11 @@ export default function Form() {
 // all hooks start with use keyword 
 // state
 
-let  [values, setValues] =useState({firstname:"" , lastname:""})
+const [values, setValues] = useState({firstname:"" , lastname:""})
 const [data, setData] = useState({firstname:"", lastname:""})
 // creating a function to get  onChange value from input elements
 function onChange(e){
-setValues({...values,[e.target.name]:e.target.values})
+setValues({...values,[e.target.name]:e.target.value})
 }
 // creating a afunction 
 
@@ -27,17 +27,19 @@ return (
  <form onSubmit={onSubmit} style={{marginLeft:"20px ",  fontWeight:"bold",color:"#35354E"}} >
     <label htmlFor="firstname" style={{marginTop:"15px"}}>Enter First Name :-</label>
 
-    <input type="text" onChange={onChange}/>
+    <input type="text" onChange={onChange} id='firstname' name="firstname"/>
+    {console.log(onChange.firstname)}
     <br />
     <label htmlFor="lastname" > Enter Last Name here :-</label>
    
-    <input type="text" style={{marginTop:"15px"}}/> <br />
+    <input type="text" onChange={onChange}  id="lastname" name="lastname" style={{marginTop:"15px"}}/> <br />
+ 
 <label htmlFor="mobile numbere" style={{marginTop:"15px"}}>Please Enter your Mobie Number here :- </label>
 
 <input type="number" required style={{marginTop:"15px"}}/><br/>
 <label htmlFor="Email" style={{marginTop:"15px"}}>Email :- </label>
 
-<input type="email" style={{marginTop:"15px"}}required/>
+<input type="email" id='email' name='email' style={{marginTop:"15px"}}required/>
 <br/>
 
 <label htmlFor="gender" className='gender'style={{marginRight:"15px",marginTop:"15px"}} >Gender:-</label>
